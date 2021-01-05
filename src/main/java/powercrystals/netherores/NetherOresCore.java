@@ -3,6 +3,13 @@ package powercrystals.netherores;
 import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
 import static powercrystals.netherores.NetherOresCore.*;
 
+import java.io.File;
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.reflect.FieldUtils;
+
 import cofh.CoFHCore;
 import cofh.core.CoFHProps;
 import cofh.core.world.WorldHandler;
@@ -23,11 +30,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-
-import java.io.File;
-import java.util.List;
-import java.util.Map;
-
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -39,7 +42,6 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreDictionary.OreRegisterEvent;
-
 import powercrystals.netherores.entity.EntityArmedOre;
 import powercrystals.netherores.entity.EntityHellfish;
 import powercrystals.netherores.net.ServerProxy;
@@ -123,20 +125,36 @@ public class NetherOresCore extends BaseMod
 
 		if (enableHellQuartz.getBoolean(true))
 		{
+			// make Blocks.quartz_ore non-final
+			final Field quartz_ore = ReflectionHelper.findField(Blocks.class, "quartz_ore", "field_150449_bY");
+			FieldUtils.removeFinalModifier(quartz_ore);
+			
 			BlockNetherOverrideOre quartz = new BlockNetherOverrideOre(Blocks.quartz_ore) {
 				@Override
 				public void setOverride()
 				{
-					Blocks.quartz_ore = this;
+					try {
+						quartz_ore.set(null, this);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 
 				@Override
 				public void resetOverride()
 				{
-					Blocks.quartz_ore = _override;
+					try {
+						quartz_ore.set(null, _override);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			};
-			Blocks.quartz_ore = quartz;
+			try {
+				quartz_ore.set(null, quartz);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			RegistryUtils.overwriteEntry(Block.blockRegistry, "minecraft:quartz_ore", quartz);
 		}
 

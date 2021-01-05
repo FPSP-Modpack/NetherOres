@@ -2,6 +2,9 @@ package powercrystals.netherores.entity;
 
 import static powercrystals.netherores.NetherOresCore.*;
 
+import java.lang.reflect.Field;
+
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -10,11 +13,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.Facing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
 import powercrystals.netherores.world.BlockHellfish;
 
 public class EntityHellfish extends EntitySilverfish
 {
+	
+	private Field allySummonCooldownField;
+	
 	public EntityHellfish(World world)
 	{
 		super(world);
@@ -22,6 +27,7 @@ public class EntityHellfish extends EntitySilverfish
 		isImmuneToFire = true;
 		stepHeight = 1.0F;
 		hurtTime = 15;
+		allySummonCooldownField = ReflectionHelper.findField(EntitySilverfish.class, "allySummonCooldown", "field_70843_d");
 	}
 
 	@Override
@@ -44,9 +50,9 @@ public class EntityHellfish extends EntitySilverfish
 	@Override
 	protected void updateEntityActionState()
 	{
-		int cooldown = allySummonCooldown;
+		int cooldown = getAllySummonCooldown();
 		super.updateEntityActionState();
-		allySummonCooldown = cooldown;
+		setAllySummonCooldown(cooldown);
 
 		if (!worldObj.isRemote)
 		{
@@ -54,11 +60,11 @@ public class EntityHellfish extends EntitySilverfish
 			int Y;
 			int Z;
 
-			if (allySummonCooldown > 0)
+			if (getAllySummonCooldown() > 0)
 			{
-				--allySummonCooldown;
+				setAllySummonCooldown(getAllySummonCooldown() - 1);
 
-				if (allySummonCooldown == 0)
+				if (getAllySummonCooldown() == 0)
 				{
 					X = MathHelper.floor_double(posX);
 					Y = MathHelper.floor_double(posY);
@@ -130,5 +136,22 @@ public class EntityHellfish extends EntitySilverfish
 		 *  The nether is always dark. Light means torches, means players.
 		 */
 		return d + worldObj.getLightBrightness(par1, par2, par3) - .5F;
+	}
+	
+	public int getAllySummonCooldown() {
+		try {
+			return allySummonCooldownField.getInt(this);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
+	public void setAllySummonCooldown(int allySummonCooldown) {
+		try {
+			allySummonCooldownField.setInt(this, allySummonCooldown);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
