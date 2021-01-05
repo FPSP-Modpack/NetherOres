@@ -197,6 +197,7 @@ public class BlockNetherOres extends Block implements INetherOre {
 	public static void angerPigmen(EntityPlayer player, World world, int x, int y, int z) {
 		final int _aggroRange = NetherOresCore.pigmenAggroRange.getInt();
 		if (enableAngryPigmen.getBoolean(true)) {
+			@SuppressWarnings("unchecked")
 			List<EntityPigZombie> list = world.getEntitiesWithinAABB(EntityPigZombie.class,
 					AxisAlignedBB.getBoundingBox(x - _aggroRange, y - _aggroRange, z - _aggroRange, x + _aggroRange + 1,
 							y + _aggroRange + 1, z + _aggroRange + 1));

@@ -59,7 +59,7 @@ public class NetherOresCore extends BaseMod
 {
 	public static final String modId = "NetherOres";
 	public static final String modName = "Nether Ores";
-	public static final String version = "1.7.10R2.3.2B1";
+	public static final String version = "@VERSION@";
 	public static final String dependencies = CoFHCore.version_group;
 
 	public static final String mobTextureFolder = "netherores:textures/mob/";

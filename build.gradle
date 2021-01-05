@@ -17,26 +17,27 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0"
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+version = "2.3.3"
 group= "powercrystals.netherores"
 archivesBaseName = "Nether Ores"
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
     runDir = "eclipse"
+    replace "@VERSION@", project.version
+    replaceIn "NetherOresCore.java"
 }
 
 repositories {
     maven {
         url "http://maven.ic2.player.to/"
     }
-    ivy {
-        artifactPattern "http://downloads.gtnewhorizons.com/Mods_for_Jenkins/[module]-[revision].[ext]"
-    }
 }
 
 dependencies {
-    //compile "appeng:appliedenergistics2:rv3-beta-6:api"
     compile "net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev"
     compile fileTree(dir: 'lib', include: '*.jar')
 }
