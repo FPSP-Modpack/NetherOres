@@ -13,7 +13,6 @@ tile.netherores.ore.emerald.name = \u5730\u72f1\u7eff\u5b9d\u77f3\u77ff\u77f3
 tile.netherores.ore.silver.name = \u5730\u72f1\u94f6\u77ff\u77f3
 tile.netherores.ore.lead.name = \u5730\u72f1\u94c5\u77ff\u77f3
 tile.netherores.ore.uranium.name = \u5730\u72f1\u94c0\u77ff\u77f3
-tile.netherores.ore.nikolite.name = \u5730\u72f1\u84dd\u77f3\u77ff\u77f3
 tile.netherores.ore.ruby.name = \u5730\u72f1\u7ea2\u5b9d\u77f3\u77ff\u77f3
 tile.netherores.ore.peridot.name = \u5730\u72f1\u6a44\u6984\u77f3\u77ff\u77f3
 tile.netherores.ore.sapphire.name = \u5730\u72f1\u84dd\u5b9d\u77f3\u77ff\u77f3

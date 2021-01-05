@@ -36,7 +36,7 @@ public enum Ores
 	Silver(     6,     4,     2,    4),
 	Lead(       6,     6,     2,    4),
 	Uranium(    3,     2,     2,    4, "crushed"),
-	Nikolite(   8,     4,     2,   21,    "dust",    7,   2),
+	Electrotine(   8,     4,     2,   21,    "dust",    7,   2),
 	Ruby(       6,     3,     2,    5,     "gem",    2,   3),
 	Peridot(    6,     3,     2,    5,     "gem",    2,   3),
 	Sapphire(   6,     3,     2,    5,     "gem",    2,   3),
