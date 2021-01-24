@@ -1,13 +1,21 @@
 package powercrystals.netherores.world;
 
-import static powercrystals.netherores.NetherOresCore.*;
-
-import cofh.api.world.IFeatureGenerator;
+import static powercrystals.netherores.NetherOresCore.blockHellfish;
+import static powercrystals.netherores.NetherOresCore.enableHellfish;
+import static powercrystals.netherores.NetherOresCore.enableWorldGen;
+import static powercrystals.netherores.NetherOresCore.forceOreSpawn;
+import static powercrystals.netherores.NetherOresCore.getOreBlock;
+import static powercrystals.netherores.NetherOresCore.hellFishMaxY;
+import static powercrystals.netherores.NetherOresCore.hellFishMinY;
+import static powercrystals.netherores.NetherOresCore.hellFishPerChunk;
+import static powercrystals.netherores.NetherOresCore.hellFishPerGroup;
+import static powercrystals.netherores.NetherOresCore.hellFishRetrogen;
+import static powercrystals.netherores.NetherOresCore.worldGenAllDimensions;
 
 import java.util.Random;
 
+import cofh.api.world.IFeatureGenerator;
 import net.minecraft.world.World;
-
 import powercrystals.netherores.ores.Ores;
 
 public class NetherOresWorldGenHandler implements IFeatureGenerator

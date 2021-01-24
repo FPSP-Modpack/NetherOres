@@ -1,10 +1,9 @@
 package powercrystals.netherores.render;
 
-import powercrystals.netherores.NetherOresCore;
-
 import net.minecraft.client.renderer.entity.RenderSilverfish;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+import powercrystals.netherores.NetherOresCore;
 
 public class RenderHellfish extends RenderSilverfish
 {

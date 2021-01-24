@@ -1,11 +1,10 @@
 package powercrystals.netherores.net;
 
-import cofh.asmhooks.event.ModPopulateChunkEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-
 import java.util.HashMap;
 import java.util.HashSet;
 
+import cofh.asmhooks.event.ModPopulateChunkEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;

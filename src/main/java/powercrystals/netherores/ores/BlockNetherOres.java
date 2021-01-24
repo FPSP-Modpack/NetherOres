@@ -2,17 +2,14 @@ package powercrystals.netherores.ores;
 
 import static powercrystals.netherores.NetherOresCore.*;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
@@ -202,13 +199,7 @@ public class BlockNetherOres extends Block implements INetherOre {
 					AxisAlignedBB.getBoundingBox(x - _aggroRange, y - _aggroRange, z - _aggroRange, x + _aggroRange + 1,
 							y + _aggroRange + 1, z + _aggroRange + 1));
 			for (int j = 0; j < list.size(); j++) {
-				Method becomeAngryAt = ReflectionHelper.findMethod(EntityPigZombie.class, null,
-						new String[] { "becomeAngryAt", "func_70835_c" }, Entity.class);
-				try {
-					becomeAngryAt.invoke(list.get(j), player);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				list.get(j).becomeAngryAt(player);
 			}
 		}
 	}

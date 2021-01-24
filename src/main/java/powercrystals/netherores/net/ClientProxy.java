@@ -1,7 +1,6 @@
 package powercrystals.netherores.net;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
-
 import powercrystals.netherores.entity.EntityArmedOre;
 import powercrystals.netherores.entity.EntityHellfish;
 import powercrystals.netherores.render.RenderHellfish;

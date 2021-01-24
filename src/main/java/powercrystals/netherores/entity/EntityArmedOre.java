@@ -2,13 +2,11 @@ package powercrystals.netherores.entity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
 import powercrystals.netherores.NetherOresCore;
 
 public class EntityArmedOre extends Entity

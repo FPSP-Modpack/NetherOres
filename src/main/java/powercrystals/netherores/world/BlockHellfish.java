@@ -8,7 +8,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
 import powercrystals.netherores.NetherOresCore;
 import powercrystals.netherores.entity.EntityHellfish;
 import powercrystals.netherores.net.ServerProxy;

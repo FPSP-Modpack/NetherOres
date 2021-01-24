@@ -1,15 +1,17 @@
 package powercrystals.netherores.ores;
 
-import static powercrystals.netherores.NetherOresCore.*;
-import static powercrystals.netherores.ores.BlockNetherOres.*;
-
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import static powercrystals.netherores.NetherOresCore.enableFortuneExplosions;
+import static powercrystals.netherores.NetherOresCore.hellFishFromOre;
+import static powercrystals.netherores.NetherOresCore.hellFishFromOreChance;
+import static powercrystals.netherores.ores.BlockNetherOres.angerPigmen;
+import static powercrystals.netherores.ores.BlockNetherOres.checkExplosionChances;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -29,7 +31,6 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
 import powercrystals.netherores.NetherOresCore;
 import powercrystals.netherores.world.BlockHellfish;
 

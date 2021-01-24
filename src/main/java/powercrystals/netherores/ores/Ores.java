@@ -3,21 +3,17 @@ package powercrystals.netherores.ores;
 import appeng.api.AEApi;
 import appeng.api.features.IGrinderEntry;
 import appeng.api.features.IGrinderRegistry;
-
 import cofh.api.modhelpers.ThermalExpansionHelper;
 import cofh.asm.relauncher.Strippable;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import ic2.api.recipe.RecipeInputItemStack;
 import ic2.api.recipe.Recipes;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
-
 import powercrystals.netherores.NetherOresCore;
 
 public enum Ores
