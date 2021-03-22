@@ -157,7 +157,7 @@ public class NetherOresCore extends BaseMod
 
 		proxy.load();
 
-		UpdateManager.registerUpdater(new UpdateManager(this, null, CoFHProps.DOWNLOAD_URL));
+		//UpdateManager.registerUpdater(new UpdateManager(this, null, CoFHProps.DOWNLOAD_URL));
 	}
 
 	@EventHandler
