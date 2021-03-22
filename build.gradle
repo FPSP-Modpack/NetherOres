@@ -42,6 +42,12 @@ dependencies {
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
+jar {
+    manifest {
+        attributes.put("FMLAT", "NetherOres_at.cfg")
+    }
+}
+
 processResources
 {
     inputs.property "version", project.version
